@@ -185,13 +185,62 @@
 
 
 
-import { View,Text } from 'react-native';
+// import { View,Text } from 'react-native';
 
 
-export default function appdev() {
- return (
-   <View>
-    <Text>BRUNO</Text>
-   </View>
+// export default function appdev() {
+//  return (
+//    <View>
+//     <Text>BRUNO</Text>
+//    </View>
+//   );
+// }
+
+
+
+
+// import React from 'react';
+// import { Text, View, StyleSheet } from 'react-native';
+
+// // Componente HelloWorld
+// const HelloWorld: React.FC = () => {
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.text}>Hello, World!</Text>
+//     </View>
+//   );
+// };
+
+// // Estilos
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   text: {
+//     fontSize: 24,
+//   },
+// });
+
+// // Componente principal
+// const App: React.FC = () => {
+//   return <HelloWorld />;
+// };
+
+// export default App;
+
+
+import React from 'react';
+import { View, Text } from 'react-native';
+// import 'nativewind/tailwind.css'; // Importa as classes do Tailwind
+
+const App: React.FC = () => {
+  return (
+    <View className="flex-1 justify-center items-center bg-gray-100">
+      <Text className="text-2xl font-bold text-blue-500">BRUNO Pereira</Text>
+    </View>
   );
-}
+};
+
+export default App;
