@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -78,7 +78,6 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-=======
 
 # Welcome to your React-Native app 👋
 
@@ -127,4 +126,4 @@ Join our community of developers creating amazing apps with React Native:
 - [React Native on GitHub](https://github.com/facebook/react-native): View the open-source project, report issues, and contribute.
 - [React Native Community on Discord](https://discord.gg/reactiflux): Chat with other React Native developers, ask questions, and share your experiences.
 - [React Native on Stack Overflow](https://stackoverflow.com/questions/tagged/react-native): Ask questions and get answers from the React Native community on Stack Overflow.
->>>>>>> 35ca9de1f296d9633dc2ff72a5ab612b5bebb017
+35ca9de1f296d9633dc2ff72a5ab612b5bebb017
