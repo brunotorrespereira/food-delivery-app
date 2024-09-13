@@ -1,18 +1,6 @@
-// {
-//   "extends": "@react-native/typescript-config/tsconfig.json"
-// }
-
 
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
-  "compilerOptions": {
-    "typeRoots": [
-      "./node_modules/@types",
-      "./" // Inclua a raiz para que os arquivos .d.ts na raiz sejam reconhecidos
-    ]
-  },
-  "include": [
-    "src/**/*",
-    "global.d.ts" // Inclua explicitamente o arquivo global.d.ts
-  ]
+  // "include": ["src", "src/types"]
 }
+

@@ -1,15 +1,16 @@
 
+
 // import React, { useState } from 'react';
-// import { Alert, Keyboard, TouchableWithoutFeedback } from 'react-native';
+// import { Alert, Keyboard, TouchableWithoutFeedback, View, Text, TextInput, TouchableOpacity, Switch } from 'react-native';
 // import auth from '@react-native-firebase/auth';
 // import useStore from './src/store/themeStore';
-// import Form from './src/components/form/styles';
 
-// export default function App() {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
+// const App: React.FC = () => {
+//   const [email, setEmail] = useState<string>('');
+//   const [password, setPassword] = useState<string>('');
+//   const [name, setName] = useState<string>(''); 
 
-//   const { theme, toggleTheme } = useStore(state => ({
+//   const { theme, toggleTheme } = useStore((state) => ({
 //     theme: state.theme,
 //     toggleTheme: state.toggleTheme,
 //   }));
@@ -24,13 +25,14 @@
 //     toggleTheme();
 //   };
 
-//   async function cadastrar() {
+//   const cadastrar = async () => {
 //     try {
 //       const userCredential = await auth().createUserWithEmailAndPassword(email, password);
 //       Alert.alert('Usuário Criado com Sucesso', `Email: ${userCredential.user.email}`);
 //       setEmail('');
 //       setPassword('');
-//     } catch (error) {
+//       setName(''); 
+//     } catch (error: any) {
 //       if (error.code === 'auth/weak-password') {
 //         Alert.alert('Sua Senha deve ter pelo menos 6 caracteres');
 //       } else if (error.code === 'auth/invalid-email') {
@@ -39,59 +41,56 @@
 //         Alert.alert('Ops algo deu errado');
 //       }
 //     }
-//   }
+//   };
 
 //   return (
 //     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-//       <Form
-//         isDarkMode={isDarkMode}
-//         handleToggleDarkMode={handleToggleDarkMode}
-//         handleToggleLightMode={handleToggleLightMode}
-//         email={email}
-//         setEmail={setEmail}
-//         password={password}
-//         setPassword={setPassword}
-//         cadastrar={cadastrar}
-//       />
+//       <View className={`${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'} flex-1 justify-center`}>
+        
+//         <View className="absolute top-10 right-5">
+//           <View className="flex-row items-center mb-2">
+//             <Text className={`text-lg mr-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Light</Text>
+//             <Switch value={!isDarkMode} onValueChange={handleToggleLightMode} />
+//           </View>
+//           <View className="flex-row items-center">
+//             <Text className={`text-lg mr-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Dark</Text>
+//             <Switch value={isDarkMode} onValueChange={handleToggleDarkMode} />
+//           </View>
+//         </View>
+
+        
+//         <View className="p-4">
+//           <Text className={`text-2xl mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Nome</Text>
+//           <TextInput
+//             className={`mb-4 p-3 border border-gray-400 text-lg ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}
+//             onChangeText={setName}
+//             value={name}
+//           />
+//           <Text className={`text-2xl mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Email</Text>
+//           <TextInput
+//             className={`mb-4 p-3 border border-gray-400 text-lg ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}
+//             onChangeText={setEmail}
+//             value={email}
+//           />
+//           <Text className={`text-2xl mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Senha</Text>
+//           <TextInput
+//             className={`mb-6 p-3 border border-gray-400 text-lg ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}
+//             onChangeText={setPassword}
+//             value={password}
+//             secureTextEntry={true}
+//           />
+//         </View>
+
+        
+//         <TouchableOpacity
+//           className={`p-4 rounded-lg items-center mx-4 ${isDarkMode ? 'bg-blue-600' : 'bg-green-500'}`}
+//           onPress={cadastrar}
+//         >
+//           <Text className="text-white text-xl">Novo Funcionário</Text>
+//         </TouchableOpacity>
+//       </View>
 //     </TouchableWithoutFeedback>
 //   );
-// }
-
-
-
-
-
-// import React from 'react';
-// import { SafeAreaView, Text, View } from 'react-native';
-// import tw from 'twrnc';
-
-
-// const App = () => {
-//   return (
-    
-//       <View>
-//       <Text style={tw`text-red-600 text-xl`}>Olá Bruno</Text>
-//       </View>
-//   );
-// };
-
-// export default App;
-
-
-
-// import React from 'react';
-// import { SafeAreaView } from 'react-native';
-// import { StyledForm } from './src/components/form/styles';
-// import { useColorScheme } from 'nativewind';  // Importando useColorScheme do NativeWind
-
-// const App = () => {
-//   const colorScheme = useColorScheme();  // Hook para obter o esquema de cores
-
-//   return (
-//     <SafeAreaView className={`flex-1 justify-center items-center bg-gray-100 ${colorScheme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
-//       <StyledForm />
-//     </SafeAreaView>
-//   );
 // };
 
 // export default App;
@@ -102,145 +101,115 @@
 
 
 
-// import React from 'react';
-// import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
-// import { useColorScheme } from 'nativewind';  // Importando do NativeWind
-
-// const Section = ({ children, title }) => {
-//   return (
-//     <View className="mt-8 px-4">
-//       <Text className="text-2xl font-bold text-black dark:text-white">
-//         {title}
-//       </Text>
-//       <Text className="mt-2 text-lg text-black dark:text-white">
-//         {children}
-//       </Text>
-//     </View>
-//   );
-// };
-
-// const App = () => {
-//   const colorScheme = useColorScheme();  // Hook do NativeWind para o esquema de cores
-
-//   return (
-//     <SafeAreaView className={`bg-neutral-300 dark:bg-slate-900 flex-1`}>
-//       <StatusBar barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'} />
-//       <ScrollView contentInsetAdjustmentBehavior="automatic" className="bg-neutral-300 dark:bg-slate-900">
-//         <View className="bg-white dark:bg-black">
-//           <Section title="Step One">
-//             Edit <Text className="font-bold">App.js</Text> to change this screen and then come back to see your edits.
-//           </Section>
-//           <Section title="See Your Changes">
-//             Reload your app to see the changes.
-//           </Section>
-//           <Section title="Debug">
-//             Follow the instructions to debug your app.
-//           </Section>
-//           <Section title="Learn More">
-//             Read the docs to discover what to do next.
-//           </Section>
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
-
-// export default App;
-
-
-
-
-
-// 
 
 
 
 // import React from 'react';
-// import { Text, View } from 'react-native';
-// // import { styled } from 'nativewind'; 
-
-// export default function App() {
-//   return (
-//     <View className="flex-1 bg-black-500 items-center justify-center">
-//       <Text className="text-lg text-white">Hello World bruno pereira</Text>
-//     </View>
-//   );
-// }
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { View, Text,ScrollView} from 'react-native';
+// import Header from './src/components/header';
+// import { StatusBar } from 'react-native';
 
 
 
-// import { Text, View } from 'react-native';
+// const Stack = createNativeStackNavigator();
 
-// const TestComponent = () => {
-//   return (
-//     <View className="flex-1 items-center justify-center bg-gray-100">
-//       <Text className="text-blue-500 text-lg">Testing NativeWind Styles!</Text>
-//     </View>
-//   );
-// };
-
-// export default TestComponent;
-
-
-
-
-
-// import { View,Text } from 'react-native';
-
-
-// export default function appdev() {
-//  return (
-//    <View>
-//     <Text>BRUNO</Text>
-//    </View>
-//   );
-// }
-
-
-
-
-// import React from 'react';
-// import { Text, View, StyleSheet } from 'react-native';
-
-// // Componente HelloWorld
-// const HelloWorld: React.FC = () => {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Hello, World!</Text>
-//     </View>
-//   );
-// };
-
-// // Estilos
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   text: {
-//     fontSize: 24,
-//   },
-// });
-
-// // Componente principal
 // const App: React.FC = () => {
-//   return <HelloWorld />;
+  
+
+//   return (
+//     <NavigationContainer>
+//          <View className="flex-1 pt-[statusBarHeight] bg-black"> 
+//       <StatusBar backgroundColor='transparent' barStyle='light-content'
+//       translucent={true}/>
+//       <Stack.Navigator initialRouteName='Header'>
+//       <Stack.Screen name='Header' component={Header} options={{ headerShown: false }}/>
+//     </Stack.Navigator>
+//     </View>
+//     </NavigationContainer>
+    
+//   );
 // };
 
 // export default App;
+
+
+
+// import React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { View, StatusBar, Platform } from 'react-native';
+// import Header from './src/components/header';
+
+// const Stack = createNativeStackNavigator();
+
+
+// const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
+
+// const App: React.FC = () => {
+//   return (
+//     <NavigationContainer> 
+//       <View style={{ paddingTop: statusBarHeight }}
+//         className={`flex-1 pt-[${statusBarHeight}px]`}> 
+//         <StatusBar 
+//           backgroundColor="#f5f5f5"
+//           barStyle="dark-content" 
+//           translucent={true} 
+//         />
+//         <Stack.Navigator initialRouteName='Header'>
+//           <Stack.Screen 
+//             name='Header' 
+//             component={Header} 
+//             options={{ headerShown: false }}
+//           />
+//         </Stack.Navigator>
+//       </View>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
+
 
 
 import React from 'react';
-import { View, Text } from 'react-native';
-// import 'nativewind/tailwind.css'; // Importa as classes do Tailwind
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, StatusBar } from 'react-native';
+import Header from './src/components/header';
+// import Banner from './src/components/banner';
+
+const Stack = createNativeStackNavigator();
+
 
 const App: React.FC = () => {
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100">
-      <Text className="text-2xl font-bold text-blue-500">BRUNO Pereira</Text>
-    </View>
+    <NavigationContainer> 
+      <View className="flex-1 bg-[#f5f5f5]"> 
+        <StatusBar 
+          backgroundColor="#f5f5f5"
+          barStyle="dark-content" 
+          translucent={true} 
+        />
+        <Stack.Navigator initialRouteName='Header'>
+          <Stack.Screen 
+            name='Header' 
+            component={Header} 
+            options={{ headerShown: false }}
+          />
+           {/* <Stack.Screen 
+            name='Banner' 
+            component={Banner} 
+            options={{ headerShown: false }}
+
+          /> */}
+        </Stack.Navigator>
+      </View>
+    </NavigationContainer>
   );
 };
 
 export default App;
+
+
